@@ -1,13 +1,224 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+:root {
+  --dark-greyish-blue: hsl(217, 19%, 35%);
+  --dark-blue: hsl(214, 17%, 51%);
+  --greyish-blue: hsl(212, 23%, 69%);
+  --light-greyish-blue: hsl(210, 46%, 95%);
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+/*
+    2. Remove default margin
+  */
+* {
+  margin: 0;
+}
+/*
+    3. Allow percentage-based heights in the application
+  */
+html,
+body {
+  height: 100%;
+}
+/*
+    Typographic tweaks!
+    4. Add accessible line-height
+    5. Improve text rendering
+  */
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+/*
+    6. Improve media defaults
+  */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+/*
+    7. Remove built-in form typography styles
+  */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+/*
+    8. Avoid text overflows
+  */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+body {
+  font-family: "Manrope", sans-serif;
+  display: grid;
+  place-content: center;
+  background-color: var(--light-greyish-blue);
+}
+
+main {
+  max-width: 400px;
+  border-radius: 0.7em;
+  background-color: white;
+  margin: 1em;
+  position: relative;
+  overflow: hidden;
+}
+
+p {
+  font-size: 14px;
+  color: var(--dark-blue);
+}
+
+.text_container {
+  padding: 2em 2em 0em 2em;
+  display: grid;
+  gap: 1em;
+}
+
+.image_container {
+  border-radius: 0.7em 0.7em 0em 0em;
+  height: 200px;
+  object-fit: cover;
+  overflow: hidden;
+  background-image: url("images/drawers.jpg");
+  background-position: left;
+  background-size: cover;
+}
+
+.avatar {
+  height: 40px;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+}
+
+.social_info {
+  display: flex;
+}
+
+.social span {
+  display: block;
+  font-weight: 700;
+  color: var(--dark-greyish-blue);
+}
+
+.social p {
+  margin-left: 1em;
+}
+
+.share_icon {
+  border: 0px;
+  background-color: var(--light-greyish-blue);
+  padding: 0.6em;
+  border-radius: 50%;
+  cursor: pointer;
+  pointer-events: auto;
+  z-index: 1;
+}
+
+.social {
+  margin-top: 1em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2em 0.4em 2em;
+  position: relative;
+}
+
+.share {
+  position: absolute;
+  bottom: 0px;
+  background-color: var(--dark-greyish-blue);
+  padding: 1em 2em;
+  width: 100%;
+}
+.hidden {
+  display: none;
+}
+
+.social_share {
+  position: relative;
+}
+
+.share p {
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  color: var(--greyish-blue);
+  font-weight: 100;
+  padding-right: 0.8em;
+}
+
+.share img {
+  padding: 0em 0.5em;
+}
+
+@media (min-width: 800px) {
+  main {
+    display: flex;
+    max-width: 700px;
+    overflow: unset;
+  }
+  .image_container {
+    border-radius: 0.7em 0em 0em 0.7em;
+    height: 250px;
+  }
+  .text_container {
+    gap: 1em;
+  }
+  .image_container {
+    width: 100%;
+  }
+
+  .social {
+    margin-top: 1em;
+  }
+
+  .share {
+    bottom: 70px;
+    right: -85px;
+    background-color: var(--dark-greyish-blue);
+    width: 270px;
+    border-radius: 0.5rem;
+    display: grid;
+    align-items: right;
+    justify-content: center;
+  }
+
+  .container {
+    display: grid;
+    padding-bottom: 1em;
+  }
+
+  .share::after {
+    content: "";
+    width: 0;
+    height: 0;
+    border-left: 25px solid transparent;
+    border-right: 25px solid transparent;
+    border-top: 25px solid var(--dark-greyish-blue);
+    position: absolute;
+    right: 50%;
+    transform: translateX(50%);
+    bottom: -10px;
+  }
+
+  .hidden {
+    display: none;
+  }
 }
